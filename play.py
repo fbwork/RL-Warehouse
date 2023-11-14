@@ -19,17 +19,20 @@ class Play:
     # define a function that will choose a random, non-terminal starting location
     def get_starting_location(self):
         # get a random row and column index
-        current_row_index = np.random.randint(self.environment.environment_rows)
-        current_column_index = np.random.randint(self.environment.environment_columns)
+        current_row_index, current_column_index = self.get_random_location()
         # continue choosing random row and column indexes until a non-terminal state is identified
         # (i.e., until the chosen state is a 'white square').
         while self.is_terminal_state(current_row_index, current_column_index):
-            current_row_index = np.random.randint(self.environment.environment_rows)
-            current_column_index = np.random.randint(self.environment.environment_columns)
+            current_row_index, current_column_index = self.get_random_location()
         return current_row_index, current_column_index
 
+    def get_random_location(self):
+        random_row_index = np.random.randint(self.environment.environment_rows)
+        random_column_index = np.random.randint(self.environment.environment_columns)
+        return random_row_index, random_column_index
+
     # define an epsilon greedy algorithm that will choose which action to take next (i.e., where to move next)
-    def get_next_action(self, current_row_index, current_column_index, epsilon):
+    def get_next_action(self, current_row_index, current_column_index, epsilon=settings.EPSILON):
         # if a randomly chosen value between 0 and 1 is less than epsilon,
         # then choose the most promising value from the Q-table for this state.
         if np.random.random() < epsilon:
@@ -84,7 +87,7 @@ class Play:
             # (i.e., until we reach the item packaging area or crash into an item storage location)
             while not self.is_terminal_state(row_index, column_index):
                 # choose which action to take (i.e., where to move next)
-                action_index = self.get_next_action(row_index, column_index, settings.EPSILON)
+                action_index = self.get_next_action(row_index, column_index)
 
                 # perform the chosen action, and transition to the next state (i.e., move to the next location)
                 old_row_index, old_column_index = row_index, column_index  # store the old row and column indexes

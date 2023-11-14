@@ -30,11 +30,11 @@ class Environment:
         # The array contains 11 rows and 11 columns
         # (to match the shape of the environment), and each value is initialized to -100.
         self.rewards = np.full((environment_rows, environment_columns), -100.)
-        self.rewards[0, 5] = 100.  # set the reward for the packaging area (i.e., the goal) to 100
 
         # store locations in a dictionary
         self.aisles = {}
         self.def_aisle()
+        self.update_rewards()
 
     def def_aisle(self):
         # define aisle locations (i.e., white squares) for rows 1 through 9
@@ -49,6 +49,9 @@ class Environment:
         self.aisles[8] = [3, 7]
         self.aisles[9] = [i for i in range(11)]
 
+    def update_rewards(self):
+        # set the reward for the packaging area (i.e., the goal) to 100
+        self.rewards[0, 5] = 100.
         # set the rewards for all aisle locations (i.e., white squares)
         for row_index in range(1, 10):
             for column_index in self.aisles[row_index]:
@@ -57,5 +60,3 @@ class Environment:
         # print rewards matrix
         for row in self.rewards:
             print(row)
-
-
