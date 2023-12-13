@@ -5,8 +5,8 @@ from environment import Environment
 
 
 class Play:
-    def __init__(self, environment_rows, environment_columns):
-        self.environment = Environment(environment_rows, environment_columns)
+    def __init__(self, environment_rows, environment_columns, packaging_area):
+        self.environment = Environment(environment_rows, environment_columns, packaging_area)
 
     # define a function that determines if the specified location is a terminal state
     def is_terminal_state(self, current_row_index, current_column_index):
@@ -59,6 +59,8 @@ class Play:
     # Define a function that will get the shortest path between any location within the warehouse that
     # the robot is allowed to travel and the item packaging location.
     def get_shortest_path(self, start_row_index, start_column_index):
+        print("-" * 20)
+        print(f'Shortest path from [{start_row_index}, {start_column_index}]: ')
         # return immediately if this is an invalid starting location
         if self.is_terminal_state(start_row_index, start_column_index):
             return []
@@ -79,7 +81,7 @@ class Play:
     def train(self):
         # run through 1000 training episodes
         for episode in range(1000):
-            print(f'Training episode {episode} ...')
+            # print(f'Training episode {episode} ...')
             # get the starting location for this episode
             row_index, column_index = self.get_starting_location()
 

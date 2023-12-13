@@ -2,14 +2,16 @@ import numpy as np
 
 
 class Environment:
-    def __init__(self, environment_rows, environment_columns):
+    def __init__(self, environment_rows, environment_columns, packaging_area):
         """
         initialize the environment
         :param int environment_rows: number of rows
         :param int environment_columns: number of columns
+        :param int packaging_area: where products get packaged
         :return: None
         """
         # define the shape of the environment (i.e., its states)
+        self.packaging_area = packaging_area
         self.environment_rows = environment_rows
         self.environment_columns = environment_columns
 
@@ -51,7 +53,7 @@ class Environment:
 
     def update_rewards(self):
         # set the reward for the packaging area (i.e., the goal) to 100
-        self.rewards[0, 5] = 100.
+        self.rewards[self.packaging_area] = 100.
         # set the rewards for all aisle locations (i.e., white squares)
         for row_index in range(1, 10):
             for column_index in self.aisles[row_index]:

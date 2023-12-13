@@ -15,3 +15,6 @@ After picking items from the shelves, the robots must bring the items to a speci
 In order to ensure maximum efficiency and productivity, the robots will need to learn the shortest path between the item packaging area and all other locations within the warehouse where the robots are allowed to travel.
 
 We will use Q-learning to accomplish this task!
+
+
+I added a grid view to the test section ...

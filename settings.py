@@ -1,6 +1,7 @@
 # define environment parameters
 ENVIRONMENT_ROWS = 11
 ENVIRONMENT_COLUMNS = 11
+PACKAGING_AREA = (0, 5)
 
 # define training parameters
 EPSILON = 0.9  # the percentage of time when we should take the best action (instead of a random action)
