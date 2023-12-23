@@ -1,5 +1,5 @@
-RL-Warehouse
-A sample Q-learning code
+**RL-Warehouse**
+_A sample Q-learning code_
 
 Source: https://www.youtube.com/watch?v=iKdlKYG78j4
 
@@ -14,7 +14,13 @@ After picking items from the shelves, the robots must bring the items to a speci
 
 In order to ensure maximum efficiency and productivity, the robots will need to learn the shortest path between the item packaging area and all other locations within the warehouse where the robots are allowed to travel.
 
-We will use Q-learning to accomplish this task!
+Q-learning is used to accomplish this task!
 
-
+------------------------------------------------
+**New**
 I added a grid view to the test section ...
+
+**Run**
+1- create venv (ex. python -m venv venv)
+2- activate the venv
+3- run the program by: python main.py
