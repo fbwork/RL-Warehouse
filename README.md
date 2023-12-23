@@ -18,9 +18,13 @@ Q-learning is used to accomplish this task!
 
 ------------------------------------------------
 **New**
+
 I added a grid view to the test section ...
 
 **Run**
+
 1- create venv (ex. python -m venv venv)
+
 2- activate the venv
+
 3- run the program by: python main.py
